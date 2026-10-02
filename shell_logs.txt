@@ -1,0 +1,500 @@
+   22  cs
+   23  pwd
+   24  ls
+   25  git status
+   26  cat umalloc.h
+   27  ssh git@github.com:cs429-fa2026/cs429-fa2026-mm-lab-cheza-taylor.git
+   28  git clone git@github.com:cs429-fa2026/cs429-fa2026-mm-lab-cheza-taylor.git
+   29  ls
+   30  pwd
+   31  ls
+   32  ls traces
+   33  ls traces/week1
+   34  cat traces/week1/short1.rep
+   35  cat traces/week1/short2.rep
+   36  ls traces/week2
+   37  ls traces/week2/basic
+   38  cat traces/week2/basic/quick.rep
+   39  ls traces/week2
+   40  ls traces/week2/basic
+   41  grep '^a' traces/week2/basic/quick.rep
+   42  grep '^a' traces/week2/basic/quick.rep | head
+   43  grep '^a' traces/week2/basic/quick.rep | tail
+   44  make
+   45  make
+   46  make heap_runner
+   47  ./heap_runner
+   48  ./check_heap
+   49  ls
+   50  ./heap_runner
+   51  make heap_runner
+   52  make heap_runner
+   53  ./heap_runner
+   54  grep -n -A 40 -B 10 "Failed to detect overlap at block" heap_runner.c
+   55  make heap_runner
+   56  ./heap_runner
+   57  gdb ./heap_runner
+   58  nl -ba check_heap.c | sed -n '120,132p'
+   59  make heap_runner
+   60  ./heap_runner
+   61  make heap_runner
+   62  ./heap_runner
+   63  make
+   64  make
+   65  grep -R "csbrk" -n *.h
+   66  cat csbrk.h
+   67  grep -R "csbrk(" -n --exclude="csbrk.h"
+   68  sed -n '370,400p' runner.c
+   69  make
+   70  make
+   71  make
+   72  make
+   73  make
+   74  make
+   75  ./mdriver -f traces/week1/short1.rep
+   76  ls
+   77  driver.py
+   78  ls
+   79  ./runner --help
+   80  ./runner -rv traces/week1/short1.rep
+   81  ls traces/week1
+   82  ./traces/week1
+   83  ./traces/week1/oom_easy.rep 
+   84  ./runner -rv ./traces/week1/short1.rep
+   85  make
+   86  ls traces
+   87  ls traces/week1
+   88  for trace in traces/week1/*.rep; do ./runner -r "$trace"; done
+   89  git status
+   90  git add check_heap.c umalloc.c umalloc.h
+   91  git status
+   92  git commit -m "Complete Week 1 Allocator"
+   93  git push
+   94  git status
+   95  ls
+   96  ./traces
+   97  ls ./traces
+   98  ./heap_runner.c
+   99  ./heap_runner
+  100  ls traces/week2
+  101  find traces/week2 -name "*.rep"
+  102  grep -rh "^a " traces/week2 | awk '{print $3}' | sort -n | uniq -c | sort -nr | head -20
+  103  grep -rh "^a " traces/week2 | awk '{size=$3+24; total=int((size+15)/16)*16; print total}' | sort -n | uniq -c | sort -nr | head -20
+  104  grep -rh "^a " traces/week2 --include="*.rep" | awk '$3 >= 41 && $3 <= 56 {print $3}' | sort -n | uniq -c
+  105  grep -RlE "^a [0-9]+ (44|49)$" traces/week2 --include="*.rep"
+  106  head -40 traces/week2/basic/quick.rep
+  107  head -40 traces/week2/basic/quicker.rep
+  108  grep -n "^f " traces/week2/basic/quicker.rep | head
+  109  grep -n "^f " traces/week2/basic/quicker.rep | head
+  110  sed -n '115,155p' traces/week2/basic/quicker.rep
+  111  sed -n '150,210p' traces/week2/basic/quicker.rep
+  112  grep -n "^a " traces/week2/basic/quicker.rep | head -130 | tail -10
+  113  for f in $(find traces/week2 -name "*.rep"); do     awk -v file="$f" '/^a / {
+  114          total = int(($3 + 24 + 15) / 16) * 16;
+  115          if (total == 48 || total == 96 || total == 144 || total == 160 || total == 304)
+  116              count[total]++
+  117      }
+  118      END {
+  119          for (size in count)
+  120              print file, size, count[size]
+  121      }' "$f"; done | sort -k2,2n -k3,3nr
+  122  make clean
+  123  make
+  124  ./quicklist_check
+  125  grep -R "Quicklist Allocation Check" -n .
+  126  ./quicklist_check --help
+  127  gdb ./quicklist_check
+  128  nm -C quicklist_check | head -50
+  129  nm -C quicklist_check | grep -E "main|quick|check"
+  130  gdb ./quicklist_check
+  131  grep -n -B 5 -A 10 "quick_list_sizes" umalloc.h
+  132  gdb ./quicklist_check
+  133  make test_week2
+  134  make clean
+  135  make
+  136  ./quicklist_check
+  137  make test_week2
+  138  make clean
+  139  make
+  140  make clean
+  141  make
+  142  make clean
+  143  make
+  144  make test_week2
+  145  ./runner -i traces/week2/basic/coalescing.rep
+  146  ./runner -c -v traces/week2/basic/coalescing.rep
+  147  gdb ./runner
+  148  make clean
+  149  make
+  150  ./runner -r -c -v traces/week2/basic/coalescing.rep
+  151  make clean
+  152  make
+  153  make test_week2
+  154  make bump_test
+  155  make runner
+  156  make quicklist_check
+  157  quicklist_check
+  158  runner
+  159  quicklist_check.o
+  160  ls
+  161  clear
+  162  git clone --bare f2025e1-a-master cltp-practice-remote.git
+  163  ls
+  164  mv f2025e1-a-master cltp-original-backup
+  165  git clone ~/cltp-practice-remote.git cltp-practice-1
+  166  cd cltp-practice-1
+  167  ls
+  168  make
+  169  trex
+  170  make trex
+  171  make raptor
+  172  make stego
+  173  clear
+  174  make trike
+  175  make raptor
+  176  make spinosaurus
+  177  make trike
+  178  ./bin/orderlogs
+  179  ./bin/orderlogs testcases/all_new
+  180  ./bin/orderlogs -f testcases/all_new
+  181  make clean
+  182  clear
+  183  make trek
+  184  clear
+  185  make trike
+  186  make trex
+  187  make spinosaurus
+  188  make trike
+  189  gdb bin/orderlogs
+  190  make trike
+  191  bin/orderlogs -f testcases/all_new
+  192  make raptor
+  193  make stego
+  194  bin/orderlogs -f testcases/all_olf
+  195  bin/orderlogs -f testcases/all_old
+  196  gdb bin/orderlogs
+  197  bin/orderlogs -f testcases/all_old
+  198  bin/orderlogs -f testcases/all_old
+  199  gdb bin/orderlogs
+  200  bin/orderlogs -f testcases/all_old
+  201  bin/orderlogs -f testcases/all_old
+  202  gdb bin/orderlogs
+  203  bin/orderlogs -f testcases/all_old
+  204  gdb bin/orderlogs
+  205  make trike
+  206  bin/orderlogs -f testcases/all_old
+  207  gdb bin/orderlogs
+  208  make trike
+  209  bin/orderlogs -f testcases/all_old
+  210  make trike
+  211  bin/orderlogs -f testcases/all_old
+  212  make stego
+  213  make raptor
+  214  git remote -v
+  215  make trike
+  216  make raptor
+  217  make stego
+  218  history
+  219  history > shell_logs.txt
+  220  cat shell_logs.txt 
+  221  gdb
+  222  git status
+  223  git add.
+  224  git add .
+  225  git status
+  226  git commit -m "Done"
+  227  git status
+  228  git push
+  229  git status
+  230  bin/orderlogs
+  231  ls -la ~/.ssh
+  232  ls
+  233  exit
+  234  ls
+  235  cd ~/f2025e1-b-master
+  236  git status
+  237  git init
+  238  git add .
+  239  git commit -m "Initial Practice Files"
+  240  git status
+  241  cd ~
+  242  git clone --bare f2025e1-b-master cltp-practice-b-remote.git
+  243  mv f2025e1-b-master cltp-b-original-backup
+  244  git clone ~/cltp-practice-b-remote.git cltp-practice-b
+  245  cd cltp-practice-b
+  246  cd ~/f2025e2-d-master
+  247  git init
+  248  git add .
+  249  git commit -m "Initial Practice Files"
+  250  git status
+  251  cd ~
+  252  git clone --bare f2025e2-d-master cltp-practice-d-remote.git
+  253  mv f2025e2-d-master cltp-d-original-backup
+  254  git clone ~/cltp-practice-d-remote.git cltp-practice-d
+  255  cd cltp-practice-d
+  256  git status
+  257  git remote -v
+  258  make snarfs
+  259  make potbelly
+  260  bin/sb
+  261  bin/sb -i ./testcases/catdel.trace
+  262  gdb bin/sb
+  263  make trike
+  264  make stego
+  265  make raptor
+  266  bin/orderlogs
+  267  bin/orderlogs -f testcases/all_new
+  268  gdb bin/orderlogs
+  269  bin/orderlogs -f testcases/all_new
+  270  gdb
+  271  gdb bin/orderlogs
+  272  bin/orderlogs -f testcases/all_new
+  273  gdb bin/orderlogs
+  274  make spinosaurus
+  275  make trike
+  276  bin/orderlogs -f testcases/all_new
+  277  gdb bin/orderlogs
+  278  make spinosaurus
+  279  make trike
+  280  bin/orderlogs -f testcases/all_new
+  281  gdb bin/orderlogs
+  282  make spinosaurus
+  283  make trike
+  284  bin/orderlogs -f testcases/all_new
+  285  make raptor
+  286  make stego
+  287  git remote -v
+  288  history > shell_logs.txt
+  289  git status
+  290  git add .
+  291  git status
+  292  git commit -m "Finished"
+  293  git status
+  294  git push
+  295  make clean
+  296  make
+  297  cat traces/week2/complex/sqrt.rep
+  298  clar
+  299  clear
+  300  git diff > /tmp/before_quick_test.diff
+  301  git status
+  302  make clean
+  303  make
+  304  clear
+  305  make test_week2
+  306  make clean
+  307  make
+  308  clear
+  309  make test_week2
+  310  make clean
+  311  make 
+  312  make test_week2
+  313  clear
+  314  cat traces/week2/basic/binary2.rep
+  315  clear
+  316  git status
+  317  git add umalloc.c umalloc.h
+  318  git status
+  319  git commit -m "Week 2"
+  320  git push
+  321  git status
+  322  clear
+  323  cat traces/week2/basic/binary2.rep
+  324  head -50 traces/week2/basic/binary2.rep
+  325  awk '$1 == "a" {count[$3]++} END {for (s in count) print count[s], s}' traces/week2/basic/binary2.rep | sort -nr | head -20
+  326  awk '$1 == "a" {a++} $1 == "f" {f++} END {print "allocs:", a, "frees:", f}' traces/week2/basic/binary2.rep
+  327  make clean
+  328  make all
+  329  clear
+  330  ./runner -r traces/week2/basic/binary2.rep > binary2_debug.txt
+  331  grep "EXTEND:" binary2_debug.txt | head -30
+  332  grep -c "EXTEND:" binary2_debug.txt
+  333  clear
+  334  awk '
+  335  $1=="a" && $3!=last {
+  336      print NR, "ALLOC SIZE CHANGES TO", $3
+  337      last=$3
+  338  }
+  339  $1=="f" && prev!="f" {
+  340      print NR, "FREE PHASE STARTS"
+  341  }
+  342  {prev=$1}
+  343  ' traces/week2/basic/binary2.rep
+  344  clear
+  345  sed -n '7995,8015p' traces/week2/basic/binary2.rep
+  346  sed -n '11995,12010p' traces/week2/basic/binary2.rep
+  347  clear
+  348  make clean
+  349  make
+  350  clear
+  351  ./runner -r traces/week2/complex/sqrt.rep > sqrt_debug.txt
+  352  grep "EXTEND:" sqrt_debug.txt
+  353  grep "QUICK_EXTEND:" sqrt_debug.txt
+  354  grep -c "EXTEND:" sqrt_debug.txt
+  355  grep -c "QUICK_EXTEND:" sqrt_debug.txt
+  356  clear
+  357  make clean
+  358  make
+  359  clear
+  360  make
+  361  ./runner -r traces/week2/complex/sqrt.rep > sqrt_debug.txt
+  362  grep "QUICK EMPTY" sqrt_debug.txt
+  363  grep "^EXTEND:" sqrt_debug.txt
+  364  make clean
+  365  make
+  366  ./quicklist_check
+  367  make test_week2
+  368  clear
+  369  make clean
+  370  make
+  371  clear
+  372  ./quicklist_check
+  373  make test_week2
+  374  make clean
+  375  make
+  376  ./quicklist_check
+  377  clear
+  378  make test_week2
+  379  cp umalloc.c umalloc_512_backup.c
+  380  clear
+  381  make clean
+  382  make
+  383  ./quicklist_check
+  384  clear
+  385  make test_week2
+  386  cp umalloc_512_backup.c umalloc.c
+  387  diff umalloc.c umalloc_512_backup.c
+  388  rm umalloc_512_backup.c
+  389  rm sqrt_debug.txt 
+  390  rm binary2_debug.txt 
+  391  clear
+  392  make clean
+  393  make 
+  394  clear
+  395  make test_week2
+  396  git status
+  397  git add umalloc.c
+  398  git status
+  399  git commit -m "Week 2 Final"
+  400  git push
+  401  git status
+  402  clear
+  403  make clean
+  404  make
+  405  git status
+  406  git add umalloc.c
+  407  git commit -m "Week 2 Final Final"
+  408  git push
+  409  git status
+  410  clear
+  411  make clean
+  412  make
+  413  git status
+  414  git add umalloc.c
+  415  git commit -m "Week 2 Final Final Final"
+  416  git push
+  417  git status
+  418  git status
+  419  git switch --detach ebb58cd
+  420  git log --oneline --all
+  421  git branch backup-final-versions main
+  422  git switch main
+  423  git reset --hard ebb58cd
+  424  git log --oneline --all
+  425  git push --force-with-lease origin main
+  426  git log --oneline --all
+  427  git status
+  428  git status
+  429  git commit -m "Week 2 1st take"
+  430  clear
+  431  git status
+  432  git add umalloc.c
+  433  git status
+  434  git commit -m "Week 2 1st take go back"
+  435  git status
+  436  git push
+  437  git fetch origin
+  438  git reset --hard origin/main
+  439  git status
+  440  git status
+  441  git add umalloc.c
+  442  git commit -m "Week 2 go back to 1st take"
+  443  git push
+  444  git status
+  445  make snarfs
+  446  make potbelly
+  447  bin/sb -i ./testcases/catdel.trace
+  448  gdb bin/sb
+  449  make snarfs
+  450  make potbelly
+  451  bin/sb -i ./testcases/catdel.trace
+  452  gdb bin/sb
+  453  make cheba
+  454  make snarfs
+  455  make potbelly
+  456  bin/sb -i ./testcases/catdel.trace
+  457  make cheba
+  458  make mikes
+  459  make cheba
+  460  history > shell_logs.txt
+  461  git status
+  462  git add .
+  463  git status
+  464  git commit -m "Finished"
+  465  git push
+  466  git status
+  467  cd ..
+  468  pwd
+  469  rm -rf cltp-practice-d
+  470  grep -n -E "footer|FOOTER|get_footer|set_footer|sizeof.*size_t" umalloc.c umalloc.h
+  471  grep -n "get_size" umalloc.c
+  472  make clean
+  473  make
+  474  ./quicklist_check
+  475  make test_week2
+  476  git status
+  477  git add umalloc.c umalloc.h
+  478  git status
+  479  git commit -m "no footers"
+  480  git push
+  481  git status
+  482  chmod +x trie_ref
+  483  make grumpy
+  484  make happy
+  485  make doc
+  486  make grumpy
+  487  bin/second_trie
+  488  bin/second_trie -x dinosaurs.in
+  489  bin/second_trie -x easy.in
+  490  bin/second_trie -x testcases/dinosaur.in
+  491  bin/second_trie -x testcases/dinosaurs.in
+  492  gdb bin/second_trie
+  493  make happy
+  494  make doc
+  495  make grumpy
+  496  make dopey
+  497  git clone git@github.com:cheza-taylor/cltp-prac-1.git
+  498  make clean
+  499  make debug
+  500  make comp
+  501  make clean
+  502  make debug
+  503  make comp
+  504  chmod +x ref.out
+  505  make clean
+  506  make debug
+  507  make comp
+  508  make check
+  509  gdb bin/a.out -t ./testcases/short2.rep
+  510  gdb bin/a.out
+  511  make clean
+  512  make debug
+  513  gdb bin/a.out
+  514  make clean
+  515  make debug
+  516  make comp
+  517  gdb bin/a.out
+  518  make clean
+  519  make debug
+  520  make comp
+  521  history > shell_logs.txt
